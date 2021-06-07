@@ -1,0 +1,73 @@
+# Environment parameters
+env_name: PongNoFrameskip-v4 #   CartPole-v1 # LunarLander-v2 #  
+atari: True
+
+# Learning parameters
+model: Apex-DQN
+learner_device: cpu
+worker_device: cpu
+num_workers: 2
+num_learners: 1
+num_step: 3
+batch_size: 32
+max_episode_steps: None
+#param_update_interval: 50
+max_num_updates: 100000 
+tau: 0.01
+learning_rate: 0.0001
+#gamma: 0.95
+#eps_greedy: 0.30
+#eps_decay: 0.95
+gradient_clip: 10
+q_regularization: 0.0
+multiple_updates: 4
+
+# Buffer parameters
+buffer_max_size: 1000000 
+use_per: True  
+priority_alpha: 0.6
+priority_beta: 0.4
+priority_beta_start: 0.4 
+priority_beta_end: 1.0 
+worker_buffer_size: 1000
+# minimum number of entries required in buffer before it sends minibatches to learner
+minimum_buffersize_learning: 1000
+
+# Communication configs
+#pubsub_port: 5555
+#repreq_port: 5556
+#pullpush_port: 5557
+
+#Microgrids parameters
+max_battery: 12
+max_energy_generated: 12
+max_received: 10
+state_size: 5
+
+
+# Communication configs
+# pubsub_port: sending parameters from learner to worker
+# repreq_port: sending replaydata from buffer to learner for training
+# pullpush_port: sending replaydata from worker to buffer
+pubsub_port: 6555
+repreq_port: 6556
+pullpush_port: 6557
+
+# Microgrids Buffer Parameters
+replaybuffersize: 1000000
+
+
+# Microgrids Learner Parameters
+param_update_interval: 1
+minibatchsize: 32
+
+# Microgrids Agents Parameters
+gamma: 0.90
+eps_greedy: 0.8
+eps_min: 0
+targetupdatefrequency: 200
+total_iterations: 1030000
+
+
+# load model brain.pkl file or create another model brain.pkl file and use that
+load_model: 1

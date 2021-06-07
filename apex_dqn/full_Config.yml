@@ -1,0 +1,32 @@
+[Rollout Worker]
+# No of iterations
+training_step: 1
+
+# constants
+state_size: 5
+max_battery: 12
+max_energy_generated: 12
+max_received: 10
+min_non_adl: 3
+max_non_adl: 6
+grid_price: 20
+
+# penalty for not satisfying a demand
+# c_values: [10, 20, 30]
+c: 30
+
+num_of_agents: 3
+
+# lambda value for the poisson distribution of each micro grid for each time period of the day
+# Just copy the lambda for which you want to run from the config file and replace it here
+#lamb: [[2.667e-07, 0.541, 6.5965, 4.3712], [8.8281, 10.2997, 9.8301, 9.7514],[8.8281, 10.2997, 9.8301, 9.7514]]
+lamb:
+  agent1: 2.667e-07, 0.541, 6.5965, 4.3712
+  agent2: 8.8281, 10.2997, 9.8301, 9.7514
+  agent3: 8.8281, 10.2997, 9.8301, 9.7514
+
+## Initialise the agents
+names: 'g1', 'g2', 'g3'
+
+
+
